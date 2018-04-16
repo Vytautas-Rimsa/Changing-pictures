@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>9 savarankiskas</title>
+    </head>
+<body>
+    <p><img id="first" src="img1.png" width="200"></p>
+    <p><img id="second" src="img2.png" width="200"></p>
+
+    <script>        
+        var largest = 300;
+        var smallest = 100;
+        var place = 1;
+        var increase = 5;        
+
+        function swap(){
+            var image1=document.getElementById("first").width;
+            var image2=document.getElementById("second").width;
+            if(image1>=smallest && place==1){
+                if(image1==smallest){
+                    place = 0;                   
+                }                
+                image1 = image1 - increase;
+                image2 = image2 + increase;
+                document.getElementById("first").width=image1;
+                document.getElementById("second").width=image2;
+            }
+            if(image1<=largest && place==0){
+                if(image1==largest){
+                    place = 1;                    
+                }
+                image1 = image1 + increase;
+                image2 = image2 - increase;
+                document.getElementById("first").width=image1;
+                document.getElementById("second").width=image2;
+            }
+            setTimeout(swap,70);
+        }
+        document.onload=swap();
+    </script>
+</body>
+</html>
